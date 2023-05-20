@@ -1,10 +1,22 @@
 {
+  "name": "stream.data",
+  "displayName": "stream.data",
   "expo": {
     "name": "stream.data",
     "slug": "stream.data",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "translucent": true,
+      "backgroundColor": "#00000000"
+    },
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#9146FF"
+    }
   }
 }
