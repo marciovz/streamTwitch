@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "stream.data",
+    "slug": "stream.data",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
