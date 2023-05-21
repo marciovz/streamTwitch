@@ -1,8 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
 import { ThemeProvider } from 'styled-components/native';
+import * as Font from 'expo-font';
+import { DMSans_400Regular, DMSans_700Bold } from '@expo-google-fonts/dm-sans';
 
 import { Routes } from './src/routes';
 
@@ -15,6 +17,10 @@ export default function App() {
     async function initApp() {
       try {
         await SplashScreen.preventAutoHideAsync();
+        await Font.loadAsync({
+          DMSans_400Regular,
+          DMSans_700Bold
+        });
       } catch (e) {
         console.warn(e);
       } finally {
