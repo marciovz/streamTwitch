@@ -4,6 +4,7 @@
   "expo": {
     "name": "stream.data",
     "slug": "stream.data",
+    "scheme": "stream.data",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"

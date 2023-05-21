@@ -6,8 +6,8 @@ import { ThemeProvider } from 'styled-components/native';
 import * as Font from 'expo-font';
 import { DMSans_400Regular, DMSans_700Bold } from '@expo-google-fonts/dm-sans';
 
+import { AuthProvider } from './src/hooks/useAuth';
 import { Routes } from './src/routes';
-
 import theme from './src/styles/theme';
 
 export default function App() {
@@ -42,10 +42,12 @@ export default function App() {
 
   return (
     <GestureHandlerRootView onLayout={onLayoutRootView} style={{flex: 1}}>
-      <ThemeProvider theme={theme}>
-        <StatusBar style="light" backgroundColor="transparent" translucent />
-        <Routes />
-      </ThemeProvider>
+      <AuthProvider>
+        <ThemeProvider theme={theme}>
+          <StatusBar style="light" backgroundColor="transparent" translucent />
+          <Routes />
+        </ThemeProvider>
+      </AuthProvider>
     </GestureHandlerRootView>
   );
 }

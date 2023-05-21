@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { ActivityIndicator, Modal, View } from "react-native";
+import { ActivityIndicator, Modal, View, Alert } from "react-native";
 import { useTheme } from "styled-components";
 import { Fontisto } from '@expo/vector-icons';
 
+import { useAuth } from "../../hooks/useAuth";
 import LoginBannerImg from "../../assets/images/login.svg";
 import LogoImg from "../../assets/images/logo.svg";
 
@@ -20,13 +20,16 @@ import {
 } from './styles';
 
 export function SignIn() {
-  const [isLoggingIn, setIsLoggingIn] = useState(false);
+  const { isLoggingIn, signIn } = useAuth();
 
   const theme = useTheme();
-
   
-  function handleSignIn() {
-    setIsLoggingIn(state => !state);
+  async function handleSignIn() {
+    try {
+      await signIn();
+    } catch (error) {
+      Alert.alert('Erro SignIn', 'Ocorreu um erro ao tentar logar no app');
+    }
   }
 
   return (
