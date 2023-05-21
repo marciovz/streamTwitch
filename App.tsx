@@ -2,6 +2,11 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
+import { ThemeProvider } from 'styled-components/native';
+
+import { Routes } from './src/routes';
+
+import theme from './src/styles/theme';
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -30,21 +35,11 @@ export default function App() {
   }
 
   return (
-    <View 
-      onLayout={onLayoutRootView}
-      style={styles.container}
-    >
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View onLayout={onLayoutRootView} style={{flex: 1}}>
+      <ThemeProvider theme={theme}>
+        <StatusBar style="light" backgroundColor="transparent" translucent />
+        <Routes />
+      </ThemeProvider>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
