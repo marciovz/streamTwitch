@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as SplashScreen from 'expo-splash-screen';
 import { ThemeProvider } from 'styled-components/native';
 import * as Font from 'expo-font';
@@ -41,11 +41,11 @@ export default function App() {
   }
 
   return (
-    <View onLayout={onLayoutRootView} style={{flex: 1}}>
+    <GestureHandlerRootView onLayout={onLayoutRootView} style={{flex: 1}}>
       <ThemeProvider theme={theme}>
         <StatusBar style="light" backgroundColor="transparent" translucent />
         <Routes />
       </ThemeProvider>
-    </View>
+    </GestureHandlerRootView>
   );
 }
