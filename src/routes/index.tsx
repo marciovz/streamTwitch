@@ -1,5 +1,6 @@
 import { View } from "react-native";
 import { useTheme } from "styled-components";
+import { AnimatePresence } from "framer-motion";
 
 import { useAuth } from '../hooks/useAuth';
 import { SignIn } from "../screens/SignIng";
@@ -11,7 +12,9 @@ export function Routes() {
 
   return (
     <View style={{backgroundColor: theme.colors.black, flex: 1}}>
-      { user.id ? <Home /> : <SignIn /> }
+      <AnimatePresence mode='wait'>
+        { user.id ? <Home /> : <SignIn /> }
+      </AnimatePresence>
     </View>
   )
 }

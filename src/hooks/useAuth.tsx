@@ -20,11 +20,11 @@ interface AuthContextData {
   signOut: () => Promise<void>;
 }
 
-const AuthContext = createContext({} as AuthContextData);
-
 interface AuthContextProviderProps {
   children: ReactNode;
 }
+
+const AuthContext = createContext({} as AuthContextData);
 
 function AuthProvider({children}: AuthContextProviderProps) {
   const [user, setUser] = useState({} as User);
