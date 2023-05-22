@@ -60,16 +60,17 @@ function AuthProvider({children}: AuthContextProviderProps) {
         
         api.defaults.headers.common['Authorization'] = `Bearer ${authResponse.params.access_token}`;
 
-        const userResponse = await api.get('/users') as User;
+        const userResponse = await api.get('/users');
+        const { id, display_name, email, profile_image_url } = userResponse.data.data[0] as User;
 
         setUser({
-          id: userResponse.id,
-          display_name: userResponse.display_name,
-          email: userResponse.email,
-          profile_image_url: userResponse.profile_image_url
+          id,
+          display_name,
+          email,
+          profile_image_url
         });
 
-        setUserToken(authResponse.params.access_token);
+        setUserToken(authResponse.params.access_token);       
       }
     } catch (error) {
       console.log(error);
