@@ -9,6 +9,7 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "icon": "./assets/images/icon.png",
     "androidStatusBar": {
       "barStyle": "light-content",
       "translucent": true,
@@ -18,6 +19,12 @@
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#9146FF"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#FFF"
+      }
     }
   }
 }
