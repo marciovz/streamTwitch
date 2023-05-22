@@ -105,7 +105,20 @@ export function Home() {
   }, [])
 
   return (
-    <Container>
+    <Container
+      from={{
+        opacity: 0,
+        scale: 0.9,
+      }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+      }}
+      exit={{
+        opacity: 0,
+        scale: 0.9,
+      }}
+    >
       <Header>
         <UserInfo>
           <Avatar source={{ uri: user.profile_image_url }} />

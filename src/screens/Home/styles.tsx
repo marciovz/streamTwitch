@@ -2,12 +2,14 @@ import { ReactNode } from "react";
 import { RectButton, RectButtonProps } from "react-native-gesture-handler";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
 import styled from "styled-components/native";
+import { MotiView } from 'moti';
+
 
 interface SignOutButtonProps extends RectButtonProps {
   children: ReactNode;
 }
 
-export const Container = styled.View`
+export const Container = styled(MotiView)`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.black};
 `;
